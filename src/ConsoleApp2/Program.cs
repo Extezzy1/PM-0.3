@@ -43,21 +43,29 @@ namespace ConsoleApp2
         public void SubjectControlCreator()
         {
             Console.Write("Введите количество учебных дисциплин >> ");
-            int countSubject = int.Parse(Console.ReadLine());
-            arr = new Subject[countSubject];
-            for (int i = 0; i < countSubject; i++)
+            try
             {
+                int countSubject = int.Parse(Console.ReadLine());
+                arr = new Subject[countSubject];
+                for (int i = 0; i < countSubject; i++)
+                {
 
-                Console.Write("Введите наименование учебной дисциплины >> ");
-                string title = Console.ReadLine();
-                Console.Write("Введите семестр >> ");
-                int semestr = int.Parse(Console.ReadLine());
-                Console.Write("Введите форму аттестации >> ");
-                string sertification_form = Console.ReadLine();
-                Subject subject = new Subject(title, semestr, sertification_form);
-                arr[i] = subject;
+                    Console.Write("Введите наименование учебной дисциплины >> ");
+                    string title = Console.ReadLine();
+                    Console.Write("Введите семестр >> ");
+                    int semestr = int.Parse(Console.ReadLine());
+                    Console.Write("Введите форму аттестации >> ");
+                    string sertification_form = Console.ReadLine();
+                    Subject subject = new Subject(title, semestr, sertification_form);
+                    arr[i] = subject;
 
+                }
             }
+            catch (Exception)
+            {
+                Console.WriteLine("Вы ввели неккоретные данные");
+            }
+
         }
 
         public void Sort()
