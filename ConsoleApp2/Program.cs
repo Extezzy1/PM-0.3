@@ -85,6 +85,18 @@ namespace ConsoleApp2
 
         }
 
+        public void PrintToFile()
+        {
+            string outputText = "";
+            for (int i = 0; i < arr.Length; i++)
+            {
+                outputText += $"{arr[i].title}, {arr[i].semestr}, {arr[i].sertification_form}\n";
+            }
 
+            using (StreamWriter writer = new StreamWriter("output.txt", false))
+            {
+                writer.Write(outputText);
+            }
+        }
     }
 }
